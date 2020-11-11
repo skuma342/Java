@@ -1,0 +1,35 @@
+A) Install JDK on mac
+
+Ref: https://gist.github.com/gwpantazes/50810d5635fc2e053ad117b39b597a14
+
+$ brew tap                          # Check taps
+$ brew tap homebrew/cask            # Tap into cask
+$ brew tap homebrew/cask-versions   # Tap into cask-versions
+$ brew update
+$ brew search java
+$ brew info java        # Double check information about the formula, such as JDK build version and OpenJDK.
+$ brew install java     # Install the most recent stable feature release of OpenJDK
+
+B) UPON JDK INSTALLATION, IT PRINTS SOME COMMANDS TO RUN.
+
+For the system Java wrappers to find this JDK, symlink it with
+  --> sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
+openjdk is keg-only, which means it was not symlinked into /usr/local,
+because it shadows the macOS `java` wrapper.
+
+If you need to have openjdk first in your PATH run:
+  --> echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find openjdk you may need to set:
+  --> export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+  
+  C) VERIFY USING COMMAND java -version
+  
+  D) Install intellij
+  brew install intellij-idea-ce
+  
+  E)Launch the app
+  open -na "Intellij IDEA CE.app"
+  
+  
